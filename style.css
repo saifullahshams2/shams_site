@@ -1,0 +1,301 @@
+:root {
+    --bg: #F8FAFC;
+    --text: #262626;
+    --accent: #2563EB;
+    --card-bg: #FFFFFF;
+    --border: #E2E8F0;
+    --max-width: 1440px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+/* Navigation */
+.glass-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(248, 250, 252, 0.85);
+    backdrop-filter: blur(15px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-content {
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.6rem;
+    letter-spacing: -1px;
+}
+
+.logo span { color: var(--accent); }
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+/* Hero */
+.hero {
+    padding: 220px 0 140px;
+    background: radial-gradient(circle at 90% 10%, #EEF2FF 0%, transparent 40%);
+}
+
+.hero-content { max-width: 850px; }
+
+.badge {
+    background: #DBEAFE;
+    color: var(--accent);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    display: inline-block;
+}
+
+h1 {
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 25px;
+    letter-spacing: -2.5px;
+}
+
+.lead {
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: #475569;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 1.15rem;
+    color: #64748B;
+    margin-bottom: 45px;
+    max-width: 700px;
+}
+
+/* Button Group */
+.cta-group {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.btn {
+    padding: 16px 32px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.btn.primary { background: var(--text); color: white; }
+.btn.secondary { border: 1px solid var(--border); color: var(--text); }
+
+.btn:hover { transform: translateY(-3px); box-shadow: 0 12px 20px -5px rgba(0,0,0,0.1); }
+
+/* General Sections */
+.section { padding: 120px 0; }
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 80px;
+    text-align: center;
+    letter-spacing: -1px;
+}
+
+/* Timeline */
+.timeline {
+    max-width: 900px;
+    margin: 0 auto;
+    border-left: 2px solid var(--border);
+    padding-left: 50px;
+    position: relative;
+}
+
+.timeline-item { position: relative; margin-bottom: 70px; }
+.timeline-dot {
+    position: absolute;
+    left: -59px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 4px solid var(--bg);
+}
+
+.time-tag { font-size: 0.9rem; font-weight: 700; color: var(--accent); }
+.timeline-content h3 { font-size: 1.5rem; margin: 8px 0; }
+.location { color: #64748B; font-weight: 500; margin-bottom: 12px; }
+
+/* Grid & Cards */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.glass-card {
+    background: white;
+    padding: 50px;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover { 
+    border-color: var(--accent); 
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05);
+}
+
+.card-icon { font-size: 2.5rem; margin-bottom: 25px; display: block; }
+.stats { font-weight: 700; color: var(--accent); margin-top: 15px; }
+.skill-list { list-style: none; margin-top: 20px; }
+.skill-list li { margin-bottom: 12px; color: #475569; position: relative; padding-left: 20px; }
+.skill-list li::before { content: '•'; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
+
+/* Contact Section */
+.contact-section {
+    background: #ffffff;
+    border-radius: 40px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.contact-card {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contact-lead {
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+    color: #475569;
+}
+
+.contact-details { margin-bottom: 40px; font-size: 1.1rem; }
+.contact-details p { margin-bottom: 10px; }
+
+.mail-btn {
+    background: var(--accent);
+    color: white;
+    padding: 20px 45px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    max-width: 100%;
+}
+
+.mail-btn:hover {
+    background: #1d4ed8;
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.2);
+}
+
+/* Footer */
+.footer {
+    padding: 60px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: #94A3B8;
+    font-size: 0.95rem;
+}
+
+/* Responsive Updates */
+@media (max-width: 1024px) {
+    .nav-links { display: none; }
+    .hero { padding: 160px 0 100px; }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    
+    .hero { text-align: center; }
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .description { margin-left: auto; margin-right: auto; }
+
+    /* Fix for 2 buttons on 1 line on mobile */
+    .cta-group {
+        width: 100%;
+        justify-content: center;
+        gap: 8px;
+    }
+    .btn {
+        padding: 12px 16px;
+        font-size: 0.85rem;
+        flex: 1;
+        max-width: 160px;
+    }
+
+    /* Fix for Contact Email Button on Mobile */
+    .mail-btn {
+        padding: 15px 25px;
+        font-size: 0.9rem;
+        width: auto;
+        word-break: break-all;
+    }
+
+    .glass-card { padding: 30px; }
+    .timeline { padding-left: 30px; }
+    .timeline-dot { left: -39px; }
+}
+
+@media (max-width: 380px) {
+    .btn {
+        font-size: 0.75rem;
+        padding: 10px 8px;
+    }
+    .mail-btn {
+        font-size: 0.8rem;
+        padding: 12px 20px;
+    }
+}
