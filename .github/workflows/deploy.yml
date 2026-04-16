@@ -19,7 +19,7 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             set -e
-            TARGET_DIR="/home/saifullah/web/saifullahshams.com/public_html"
+            TARGET_DIR="/home/saifullah/web/shamsulhaque.me/public_html"
             cd "$TARGET_DIR"
             echo "Pulling latest changes..."
             git pull origin main
