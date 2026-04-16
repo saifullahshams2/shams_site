@@ -8,14 +8,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
-    steps:
-      # Step 1: Checkout the repository code
-      - name: Checkout Repository
-        uses: actions/checkout@v4
 
-      # Step 2: Deploy to VPS using SSH
-      - name: Deploy Files to VPS via SSH (Git Pull)
+    steps:
+      - name: Deploy to VPS via SSH
         uses: appleboy/ssh-action@v1.2.5
         with:
           host: ${{ secrets.HOST }}
@@ -23,36 +18,9 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            # Define target directory on VPS
+            set -e
             TARGET_DIR="/home/saifullah/web/saifullahshams.com/public_html"
-            
-            # Get the repository name from GitHub environment
-            REPO_NAME="${{ github.repository }}"
-            REPO_URL="https://github.com/${REPO_NAME}.git"
-            
-            # # Create target directory if it doesn't exist
-            # mkdir -p "$TARGET_DIR"
-            
-            # Check if it's already a git repo, if not clone it
-            if [ ! -d "$TARGET_DIR/.git" ]; then
-              echo "Cloning repository for the first time..."
-              cd "$(dirname "$TARGET_DIR")"
-              git clone "$REPO_URL" "$(basename "$TARGET_DIR")"
-            fi
-            
-            # Change to target directory and pull latest changes
             cd "$TARGET_DIR"
-            echo "Pulling latest changes from main branch..."
+            echo "Pulling latest changes..."
             git pull origin main
-            
-            # # Set proper file permissions (755 for directories, 644 for files)
-            # echo "Setting file permissions..."
-            # sudo chown -R ${USER}:${USER} "$TARGET_DIR"
-            # sudo chmod -R 755 "$TARGET_DIR"
-            
-            # # Reload Nginx to apply changes
-            # echo "Reloading Nginx..."
-            # sudo systemctl reload nginx || sudo systemctl restart nginx
-            
             echo "Deployment completed successfully!"
-
