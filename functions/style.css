@@ -1,3 +1,7 @@
+@font-face {
+    font-family: quicksand;
+    src: url(/functions/Quicksand-VariableFont_wght.ttf) format('truetype');
+}
 :root {
     --bg: #F8FAFC;
     --text: #262626;
@@ -14,7 +18,7 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'quicksand', sans-serif;
     background-color: var(--bg);
     color: var(--text);
     line-height: 1.6;
@@ -77,8 +81,8 @@ body {
 .hero-content { max-width: 850px; }
 
 .badge {
-    background: #DBEAFE;
-    color: var(--accent);
+    background: #262626;
+    color: #ffffff;
     padding: 8px 18px;
     border-radius: 50px;
     font-size: 0.85rem;
@@ -97,13 +101,13 @@ h1 {
 .lead {
     font-size: 1.6rem;
     font-weight: 300;
-    color: #475569;
+    color: #262626;
     margin-bottom: 20px;
 }
 
 .description {
     font-size: 1.15rem;
-    color: #64748B;
+    color: #262626;
     margin-bottom: 45px;
     max-width: 700px;
 }
@@ -242,7 +246,7 @@ h1 {
     padding: 60px 0;
     border-top: 1px solid var(--border);
     text-align: center;
-    color: #94A3B8;
+    color: #262626;
     font-size: 0.95rem;
 }
 
